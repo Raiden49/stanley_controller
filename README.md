@@ -8,7 +8,7 @@
 
 - 第一步，新开一个终端，为终端1，并进入到你的工作目录中，举个例子：`cd /workspace/robot/src`
 - 第二步，在工作目录中克隆turtlebot3的项目：`git clone  https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git`   `git clone  https://github.com/ROBOTIS-GIT/turtlebot3.git`   `git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git`
-- 第三步，把该项目也在该目录下克隆下来：`git clone https://github.com/kadupitiya/ROS-TurtleBot-PID.git`
+- 第三步，把该项目也在该目录下克隆下来：`git clone https://github.com/Raiden49/stanley_controller.git`
 - 第四步，进入到上一级目录：`cd ..`或者 `cd /workspace/robot`，构建：`cmake -B ./build -S ./src`，编译：`cmake --build build`
 - 第五步，进入到该项目的目录下：`cd /workspace/robot/src/stanley_controller`，构建：`cmake -B ./build`， 编译：`cmake --build build`
 - 第六步，`sudo gedit ~/.zshrc (bashrc)`，在最后添加：`export TURTLEBOT3_MODEL=waffle`
