@@ -18,6 +18,7 @@ std::vector<path_type> StanleyCore::
     
     std::vector<path_type> path_vector;
 
+    // path data info
     path.type = visualization_msgs::Marker::LINE_STRIP;
     path.header.frame_id = "odom";
     path.header.stamp = ros::Time::now();
@@ -70,10 +71,10 @@ void StanleyCore::StanleyRun() {
 
     path_type init_pose = std::make_pair(std::make_pair(0, 0), 0);
     path_type current_pose = init_pose;
-    // path_type next_pose = current_pose;
 
     while (ros::ok()) {
 
+        // keep publishing path 
         visualization_msgs::Marker path;
         std::vector<path_type> path_vector = CreatePath(path);  
         marker_pub.publish(path);
@@ -92,6 +93,8 @@ void StanleyCore::StanleyRun() {
 
         double e_y = math_tool.GetDistance(current_pose, current_path_point);
         // ROS_INFO_STREAM("e_y:" << e_y);
+
+        // a method for calculating positive and negative of delta_e
         e_y = ((current_pose.first.second - current_path_point.first.second) * 
                 cos(current_path_point.second) - 
                 (current_pose.first.first - current_path_point.first.first) * 
@@ -109,21 +112,13 @@ void StanleyCore::StanleyRun() {
             delta += 2 * M_PI;
         }
 
-        // next_pose.first.first = current_pose.first.first + speed * 
-        //         cos(current_pose.second) * dt;
-        // next_pose.first.second = current_pose.first.second + speed * 
-        //         sin(current_pose.second) * dt;     
-        // next_pose.second = current_pose.second + speed * tan(delta) * dt;
-        // ROS_INFO_STREAM("current_pose:" << current_pose.first.first 
-        //         << " " << current_pose.first.second << " " << current_pose.second);
-        // current_pose = next_pose;
-
         twist_msg.linear.x = speed;
         twist_msg.angular.z = delta;   
         if (odom_callback_flag) {
             cmd_vel_pub.publish(twist_msg);  
         }
 
+        // just like dt
         ros::spinOnce();
         loop_rate.sleep();  
     }
