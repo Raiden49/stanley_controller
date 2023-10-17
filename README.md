@@ -2,7 +2,7 @@
 
 ​	该项目是Stanley路径跟踪的仿真实现，基于开源的Turtlebot3模型
 
-![2](docs\2.gif)
+![2](docs/2.gif)
 
 ## 如何运行
 
@@ -16,4 +16,4 @@
 - 第八步，终端1，进入到该项目目录下：`cd /workspace/robot/src/stanley_controller`，然后：`source ./build/devel/setup.zsh(setup.bash) `
 - 最后，终端2，先启动turtlebot3节点：`roslaunch turtlebot3_fake turtlebot3_fake.launch`；然后终端1，启动该项目节点：`roslaunch stanley_controller stanley_controller.launch `
 
-![1](docs\1.gif)
+![1](docs/1.gif)
