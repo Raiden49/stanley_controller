@@ -1,0 +1,12 @@
+<launch>
+
+    <node name="stanley_controller_node" pkg="stanley_controller" type="stanley_controller_node" output="screen">
+
+        <remap from="stanley_controller_node/cmd_vel" to="cmd_vel"/>
+        <remap from="stanley_controller_node/odom" to="odom"/>
+        <remap from="stanley_controller_node/visualization_marker" to="visualization_marker"/>
+
+    </node>
+
+
+</launch>
