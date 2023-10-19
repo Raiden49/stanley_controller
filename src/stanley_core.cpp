@@ -14,7 +14,7 @@ void StanleyCore::OdomCallback(const nav_msgs::Odometry::ConstPtr& odom_msg) {
 }
 
 std::vector<path_type> StanleyCore::
-                CreatePath(visualization_msgs::Marker& path) {
+        CreatePath(visualization_msgs::Marker& path) {
     
     std::vector<path_type> path_vector;
 
