@@ -1,6 +1,6 @@
 # stanley_controller
 
-​	该项目是Stanley路径跟踪的仿真实现，基于开源的Turtlebot3模型
+​	该项目是Stanley路径跟踪的仿真实现，基于开源的Turtlebot3模型，效果图如下
 
 ![2](docs/2.gif)
 
